@@ -13,10 +13,12 @@ float simple_accum(const float *data, size_t sz) {
   return s;
 }
 
-void simple_accum_f(float *dst, const float *data, size_t sz) {
+float simple_accum_f(const float *data, size_t sz) {
+  register float s = 0.0f;
   for (size_t i = 0; i < sz; i++) {
-    dst[i] = data[i] + data[i-1] + data[i-2];
+    s += data[i] + data[i-1] + data[i-2];
   }
+  return s;
 }
 
 int main(int argc, char **argv) {
@@ -40,15 +42,15 @@ int main(int argc, char **argv) {
   int ret;
   ret = PAPI_hl_region_begin("hi_flop");
 
-  simple_accum_f(dst + PADDING, data + PADDING, n - PADDING);
+  res = simple_accum_f(data + PADDING, n - PADDING);
 
   ret = PAPI_hl_region_end("hi_flop");
 
-  float sum = 0.0f;
-  for (size_t i = 0; i < n; i++) {
-    sum += dst[i];
-  }
-  printf("Total val: %f", sum);
+//  float sum = 0.0f;
+//  for (size_t i = 0; i < n; i++) {
+//    sum += dst[i];
+//  }
+  printf("Total val: %f", res);
 
   free(data);
   free(dst);
