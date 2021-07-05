@@ -3,7 +3,8 @@
 #include<papi.h>
 #include<string.h>
 
-#define FACTOR 10
+#define FACTOR_1 10
+#define FACTOR_2 30
 
 float simple_accum(const float *data, size_t sz) {
   float s = 0;
@@ -16,7 +17,7 @@ float simple_accum(const float *data, size_t sz) {
 float simple_accum_f(const float *data, size_t sz) {
   float s = 0;
   for (size_t i = 0; i < sz; i++) {
-    s += data[i];
+    s += data[i] * FACTOR_1 + FACTOR_2;
   }
   return s;
 }
