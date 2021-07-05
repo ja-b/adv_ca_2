@@ -1,0 +1,152 @@
+Total val: 2251799813685248.000000{
+    "ranks": [
+        {
+            "threads": [
+                {
+                    "regions": [
+                        {
+                            "hi_flop": {
+                                "Region count": 1,
+                                "Real time in s": 87.6,
+                                "MFLIPS/s": 5171.17,
+                                "MFLOPS/s": 5171.17
+                            }
+                        }
+                    ],
+                    "id": "140266471741312"
+                }
+            ],
+            "id": "0000"
+        }
+    ]
+}
+Memory Cache and TLB Hierarchy Information.
+------------------------------------------------------------------------
+TLB Information.
+  There may be multiple descriptors for each level of TLB
+  if multiple page sizes are supported.
+
+L1 Instruction TLB:
+  Page Size:           4096 KB
+  Number of Entries:     12
+  Associativity:       Full
+
+L1 Data TLB:
+  Page Size:           4096 KB
+  Number of Entries:     32
+  Associativity:       Full
+
+L1 Instruction TLB:
+  Page Size:           2048 KB
+  Number of Entries:     24
+  Associativity:       Full
+
+L1 Data TLB:
+  Page Size:           2048 KB
+  Number of Entries:     64
+  Associativity:       Full
+
+L1 Instruction TLB:
+  Page Size:              4 KB
+  Number of Entries:     48
+  Associativity:       Full
+
+L1 Data TLB:
+  Page Size:              4 KB
+  Number of Entries:     64
+  Associativity:       Full
+
+L2 Instruction TLB:
+  Page Size:           4096 KB
+  Number of Entries:    512
+  Associativity:          8
+
+L2 Data TLB:
+  Page Size:           4096 KB
+  Number of Entries:    512
+  Associativity:          8
+
+L2 Instruction TLB:
+  Page Size:           2048 KB
+  Number of Entries:   1024
+  Associativity:          8
+
+L2 Data TLB:
+  Page Size:           2048 KB
+  Number of Entries:   1024
+  Associativity:          8
+
+L2 Instruction TLB:
+  Page Size:              4 KB
+  Number of Entries:    512
+  Associativity:          4
+
+L2 Data TLB:
+  Page Size:              4 KB
+  Number of Entries:   1024
+  Associativity:          8
+
+
+Cache Information.
+
+L1 Data Cache:
+  Total size:            16 KB
+  Line size:             64 B
+  Number of Lines:      256
+  Associativity:          4
+
+L1 Instruction Cache:
+  Total size:            64 KB
+  Line size:             64 B
+  Number of Lines:     1024
+  Associativity:          2
+
+L2 Unified Cache:
+  Total size:          2048 KB
+  Line size:             64 B
+  Number of Lines:    32768
+  Associativity:         16
+
+L3 Unified Cache:
+  Total size:          6144 KB
+  Line size:             64 B
+  Number of Lines:    98304
+  Associativity:         64
+
+Architecture:                    x86_64
+CPU op-mode(s):                  32-bit, 64-bit
+Byte Order:                      Little Endian
+Address sizes:                   48 bits physical, 48 bits virtual
+CPU(s):                          16
+On-line CPU(s) list:             0-15
+Thread(s) per core:              2
+Core(s) per socket:              4
+Socket(s):                       2
+NUMA node(s):                    2
+Vendor ID:                       AuthenticAMD
+CPU family:                      21
+Model:                           2
+Model name:                      AMD Opteron(tm) Processor 4386
+Stepping:                        0
+Frequency boost:                 enabled
+CPU MHz:                         1592.109
+CPU max MHz:                     3100.0000
+CPU min MHz:                     1400.0000
+BogoMIPS:                        6200.25
+Virtualization:                  AMD-V
+L1d cache:                       128 KiB
+L1i cache:                       512 KiB
+L2 cache:                        16 MiB
+L3 cache:                        12 MiB
+NUMA node0 CPU(s):               0-7
+NUMA node1 CPU(s):               8-15
+Vulnerability Itlb multihit:     Not affected
+Vulnerability L1tf:              Not affected
+Vulnerability Mds:               Not affected
+Vulnerability Meltdown:          Not affected
+Vulnerability Spec store bypass: Mitigation; Speculative Store Bypass disabled via prctl and seccomp
+Vulnerability Spectre v1:        Mitigation; usercopy/swapgs barriers and __user pointer sanitization
+Vulnerability Spectre v2:        Mitigation; Full AMD retpoline, IBPB conditional, STIBP disabled, RSB filling
+Vulnerability Srbds:             Not affected
+Vulnerability Tsx async abort:   Not affected
+Flags:                           fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ht syscall nx mmxext fxsr_opt pdpe1gb rdtscp lm constant_tsc rep_good nopl nonstop_tsc cpuid extd_apicid aperfmperf pni pclmulqdq monitor ssse3 fma cx16 sse4_1 sse4_2 popcnt aes xsave avx f16c lahf_lm cmp_legacy svm extapic cr8_legacy abm sse4a misalignsse 3dnowprefetch osvw ibs xop skinit wdt fma4 tce nodeid_msr tbm topoext perfctr_core perfctr_nb cpb hw_pstate ssbd ibpb vmmcall bmi1 arat npt lbrv svm_lock nrip_save tsc_scale vmcb_clean flushbyasid decodeassists pausefilter pfthreshold
