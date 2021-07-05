@@ -3,7 +3,7 @@
 #include<papi.h>
 #include<string.h>
 
-#define PADDING 4
+#define PADDING 2
 
 float simple_accum(const float *data, size_t sz) {
   float s = 0;
@@ -13,12 +13,10 @@ float simple_accum(const float *data, size_t sz) {
   return s;
 }
 
-float simple_accum_f(const float *data, size_t sz) {
-  float s = 0;
+float simple_accum_f(float *dst, const float *data, size_t sz) {
   for (size_t i = 0; i < sz; i++) {
-    s += data[i] + data[i-1] + data[i-2] + data[i-3] + data[i-4];
+    dst[i] = data[i] + data[i-1] + data[i-2];
   }
-  return s;
 }
 
 int main(int argc, char **argv) {
@@ -32,6 +30,7 @@ int main(int argc, char **argv) {
   n = atoi(argv[1]);
 
   float *data = (float *) malloc(n * sizeof(float));
+  float *dst = (float *) malloc(n * sizeof(float));
 
   for (size_t i = 0; i < n; ++i) {
     data[i] = 1;
@@ -41,11 +40,14 @@ int main(int argc, char **argv) {
   int ret;
   ret = PAPI_hl_region_begin("hi_flop");
 
-  res = simple_accum_f(data + PADDING, n - PADDING);
+  res = simple_accum_f(dst + PADDING, data + PADDING, n - PADDING);
 
   ret = PAPI_hl_region_end("hi_flop");
 
   printf("Total val: %f", res);
+
+  free(data);
+  free(dst);
 
   return 0;
 }
