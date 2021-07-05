@@ -3,8 +3,7 @@
 #include<papi.h>
 #include<string.h>
 
-#define FACTOR_1 10.0
-#define FACTOR_2 30.0
+#define PADDING 4
 
 float simple_accum(const float *data, size_t sz) {
   float s = 0;
@@ -17,7 +16,7 @@ float simple_accum(const float *data, size_t sz) {
 float simple_accum_f(const float *data, size_t sz) {
   float s = 0;
   for (size_t i = 0; i < sz; i++) {
-    s += data[i] * (float)FACTOR_1 + (float)FACTOR_2;
+    s += data[i] + data[i-1] + data[i-2] + data[i-3] + data[i-4];
   }
   return s;
 }
@@ -42,7 +41,7 @@ int main(int argc, char **argv) {
   int ret;
   ret = PAPI_hl_region_begin("hi_flop");
 
-  res = simple_accum_f(data, n);
+  res = simple_accum_f(data + PADDING, n - PADDING);
 
   ret = PAPI_hl_region_end("hi_flop");
 
