@@ -16,7 +16,7 @@ double simple_accum(const double *data, size_t sz) {
 int main(int argc, char **argv) {
 
   size_t n;
-  if (argc != 3) {
+  if (argc != 2) {
     printf("usage: ./hi_flop n\n");
     abort();
   }
