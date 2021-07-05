@@ -9,7 +9,7 @@
 #define CONST_4 30.0f
 #define CONST_5 10.0f
 #define CONST_6 15.0f
-#define PADDING 64
+#define PADDING 1024
 
 float simple_accum(const float *data, size_t sz) {
   float s = 0;
