@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
-#include"papi/papi.h"
+#include<papi.h>
 #include<string.h>
 
 #define FACTOR 10
