@@ -29,7 +29,7 @@ find_library(PAPI_LIBRARIES
 
 find_path(PAPI_INCLUDE_DIRS
     NAMES papi.h
-    HINTS ${PAPI_PREFIX}/include ${HILTIDEPS}/include /usr/local/papi/6.0/include
+    HINTS ${PAPI_PREFIX}/include ${HILTIDEPS}/include /usr/local/papi/6.0/include ${CMAKE_SOURCE_DIR}/papi
 )
 
 include(FindPackageHandleStandardArgs)

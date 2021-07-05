@@ -5,9 +5,7 @@
 
 #define FACTOR 10
 
-void handle_error(int errcode);
-
-double simple_accum(const double* data, size_t sz) {
+double simple_accum(const double *data, size_t sz) {
   double s = 0;
   for (size_t i = 0; i < sz; i++) {
     s += data[i];
@@ -15,8 +13,7 @@ double simple_accum(const double* data, size_t sz) {
   return s;
 }
 
-
-int main(int argc, char** argv) {
+int main(int argc, char **argv) {
 
   size_t n;
   if (argc != 3) {
@@ -26,23 +23,21 @@ int main(int argc, char** argv) {
 
   n = atoi(argv[1]);
 
-  double* data = (double *) malloc(n * sizeof(double));
+  double *data = (double *) malloc(n * sizeof(double));
 
   for (size_t i = 0; i < n; ++i) {
     data[i] = 1;
   }
 
-  int res;
+  double res;
   int ret;
   ret = PAPI_hl_region_begin("hi_flop");
-  if (ret != PAPI_OK)
-    handle_error(1);
 
   res = simple_accum(data, n);
 
   ret = PAPI_hl_region_end("hi_flop");
-  if (ret != PAPI_OK)
-    handle_error(ret);
+
+  printf("Total val: %f", res);
 
   return 0;
 }
