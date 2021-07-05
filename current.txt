@@ -1,0 +1,24 @@
+./hi_flop 100000
+
+{
+    "ranks": [
+        {
+            "threads": [
+                {
+                    "regions": [
+                        {
+                            "hi_flop": {
+                                "Region count": 1,
+                                "Real time in s": 11.36,
+                                "MFLIPS/s": 3985.75,
+                                "MFLOPS/s": 3985.75
+                            }
+                        }
+                    ],
+                    "id": "140442524333952"
+                }
+            ],
+            "id": "ZKLdt2"
+        }
+    ]
+}
