@@ -9,6 +9,12 @@
 #define CONST_4 30.0f
 #define CONST_5 10.0f
 #define CONST_6 15.0f
+#define CONST_7 110.0f
+#define CONST_8 111.0f
+#define CONST_9 12.0f
+#define CONST_10 2.0f
+#define CONST_11 3.0f
+#define CONST_12 4.0f
 #define PADDING 64
 #define REPS 1000
 
@@ -26,7 +32,7 @@ float simple_accum_f(const float *data, size_t sz) {
     register float t = 0.0f;
     for (int c = 0; c < REPS; c++) {
       for (size_t j = 0; j < PADDING; j++) {
-        t += data[i - j] * data[i] + data[i + j] * CONST_1 + CONST_2 + CONST_3 * CONST_4 + CONST_5 * CONST_6;
+        t += data[i - j] * data[i] + data[i + j] * CONST_1 + CONST_2 + CONST_3 * CONST_4 + CONST_5 * CONST_6 + CONST_6 * CONST_7 +CONST_8 + CONST_9 * CONST_10 + CONST_11 * CONST_12;
       }
       s += t + CONST_1 * CONST_2 + CONST_3 + CONST_4 * CONST_5 + CONST_6;
     }
