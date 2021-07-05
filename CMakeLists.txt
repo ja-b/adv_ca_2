@@ -8,6 +8,16 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}")
 
 find_package(PAPI)
 
+if (CMAKE_C_COMPILER_ID STREQUAL GNU)
+    add_compile_options(-mavx -fopt-info-vec -fopt-info-loop)
+elseif (CMAKE_C_COMPILER_ID STREQUAL Clang)
+    add_compile_options(-Rpass=.*loop.*)
+elseif (CMAKE_C_COMPILER_ID STREQUAL AppleClang)
+    add_compile_options(-Rpass=.*loop.*)
+elseif (CMAKE_C_COMPILER_ID STREQUAL Intel)
+    add_compile_options(-xAVX -qopt-report-stdout)
+endif ()
+
 add_executable(hi_flop hi_flop.c)
 
 #target_include_directories(hi_flop PUBLIC papi/)
