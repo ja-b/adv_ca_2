@@ -44,7 +44,11 @@ int main(int argc, char **argv) {
 
   ret = PAPI_hl_region_end("hi_flop");
 
-  printf("Total val: %f", res);
+  float sum = 0.0;
+  for (size_t i = 0; i < n; i++) {
+    sum += dst[i];
+  }
+  printf("Total val: %f", sum);
 
   free(data);
   free(dst);
