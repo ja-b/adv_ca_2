@@ -5,8 +5,16 @@
 
 #define FACTOR 10
 
-double simple_accum(const double *data, size_t sz) {
-  double s = 0;
+float simple_accum(const float *data, size_t sz) {
+  float s = 0;
+  for (size_t i = 0; i < sz; i++) {
+    s += data[i];
+  }
+  return s;
+}
+
+float simple_accum_f(const float *data, size_t sz) {
+  float s = 0;
   for (size_t i = 0; i < sz; i++) {
     s += data[i];
   }
@@ -23,17 +31,17 @@ int main(int argc, char **argv) {
 
   n = atoi(argv[1]);
 
-  double *data = (double *) malloc(n * sizeof(double));
+  float *data = (float *) malloc(n * sizeof(float));
 
   for (size_t i = 0; i < n; ++i) {
     data[i] = 1;
   }
 
-  double res;
+  float res;
   int ret;
   ret = PAPI_hl_region_begin("hi_flop");
 
-  res = simple_accum(data, n);
+  res = simple_accum_f(data, n);
 
   ret = PAPI_hl_region_end("hi_flop");
 
