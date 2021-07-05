@@ -6,6 +6,25 @@
 #define PADDING 64
 #define REPS 1000
 
+float constants[] = {
+  20.0f,
+  40.0f,
+  8.0f,
+  12.0f,
+  16.0f,
+  22.0f,
+  24.0f,
+  32.0f,
+  13.0f,
+  0.501f,
+  0.601f,
+  11.0f,
+  12.0f,
+  10.0f,
+  21.0f,
+  23.0f
+};
+
 float simple_accum(const float *data, size_t sz) {
   float s = 0;
   for (size_t i = 0; i < sz; i++) {
@@ -17,13 +36,11 @@ float simple_accum(const float *data, size_t sz) {
 float simple_accum_f(const float *data, size_t sz) {
   register float s = 0.0f;
   for (size_t i = 0; i < sz; i++) {
-    register float t = 0.0f;
-    for (int c = 0; c < REPS; c++) {
-      for (size_t j = 0; j < PADDING; j++) {
-        t += data[i - j] * data[i + j];
+    for (size_t k = 0; k < REPS; k++) {
+      for (size_t j = 0; j < 16; j++) {
+        s += data[i] * constants[j];
       }
     }
-    s += t;
   }
   return s;
 }
