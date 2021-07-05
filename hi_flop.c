@@ -3,7 +3,7 @@
 #include<papi.h>
 #include<string.h>
 
-#define PADDING 2
+#define PADDING 16
 
 float simple_accum(const float *data, size_t sz) {
   float s = 0;
@@ -16,7 +16,11 @@ float simple_accum(const float *data, size_t sz) {
 float simple_accum_f(const float *data, size_t sz) {
   register float s = 0.0f;
   for (size_t i = 0; i < sz; i++) {
-    s += data[i] + data[i-1] + data[i-2];
+    register float t = 0.0f;
+    for (size_t j = 0; j < 16; j++) {
+      t += data[i - j];
+    }
+    s += t;
   }
   return s;
 }
